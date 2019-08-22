@@ -1,3 +1,3 @@
-import './QUERY.test';
-import './hash-storage.test.js.js';
-import './html-equal.js.js';
+import './QUERY.test.js';
+import './hash-storage.test.js.';
+import './html-equal.js';
