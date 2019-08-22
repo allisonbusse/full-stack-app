@@ -1,0 +1,33 @@
+body {
+    background-color: rgb(230, 204, 204);
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color: rgb(230, 230, 230);
+}
+
+header li {
+    list-style-type: none;
+}
+
+header img {
+    width: 18%;
+}
+
+h1 {
+    font-family: 'lust', serif;
+    text-align: center;
+}
+
+.each-book {
+    list-style-type: none;
+}
+
+footer {
+    text-align: center;
+}
