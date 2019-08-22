@@ -1,5 +1,6 @@
 // Load Environment Variables from the .env file
 require('dotenv').config();
+const books = require('./books');
 
 // Application Dependencies
 const pg = require('pg');
