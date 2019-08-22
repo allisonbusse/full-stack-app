@@ -1,7 +1,7 @@
 import Component from '../Component.js';
 import Header from '../app/Header.js';
 import BookList from '../book/BookList.js';
-import books from '../../services/books.js';
+import { getBooks } from '../../services/book-api.js';
 
 class BookListApp extends Component {
     
@@ -9,11 +9,13 @@ class BookListApp extends Component {
         const header = new Header();
         dom.prepend(header.renderDOM());
 
-        const props = { books: books };
-
-        const list = new BookList(props);
+        const list = new BookList({ books: [] });
         const main = dom.querySelector('main');
         main.appendChild(list.renderDOM());
+
+        getBooks().then(books => {
+            list.update({ books });
+        });
 
     }
     

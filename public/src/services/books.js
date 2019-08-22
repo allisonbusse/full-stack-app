@@ -63,6 +63,6 @@ const books = [
         genre: 'Memoir',
         available: true
     },
-]
+];
 
 export default books;
