@@ -4,6 +4,7 @@ import BookItem from './BookItem.js';
 class BookList extends Component {
     
     onRender(dom) {
+
         const books = this.props.books;
 
         books.forEach(book => {
@@ -14,14 +15,9 @@ class BookList extends Component {
         });
     }
     
-    
     renderHTML() {
         return /*html*/`
-        <div>
-            <h1>Welcome to Full Stack Library</h1>
-            <p>Blurb</p>
             <ul class="books"></ul>
-        </div>
         `;
     }
 }
