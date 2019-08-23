@@ -11,6 +11,7 @@ client.connect()
     .then(() => {
         return client.query(`
             DROP TABLE IF EXISTS books;
+            DROP TABLE IF EXISTS genres;
     `);
     })
     .then(

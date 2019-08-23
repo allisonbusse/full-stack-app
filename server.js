@@ -23,14 +23,17 @@ app.use(express.json());
 app.get('/api/books', (req, res) => {
     client.query(`
     SELECT
-        id, 
-        title,
-        author, 
-        year, 
-        url, 
-        genre, 
-        available
-    FROM BOOKS;
+        b.id, 
+        b.title,
+        b.author, 
+        b.year, 
+        b.url,
+        b.genre_id, 
+        g.name as genre, 
+        b.available
+    FROM books b
+    JOIN genres g
+    ON b.genre_id = g.id;
     `)
         .then(result => {
             res.json(result.rows);
@@ -45,14 +48,32 @@ app.get('/api/books', (req, res) => {
 app.post('/api/books', (req, res) => {
     const book = req.body;
     client.query(`
-        INSERT INTO books (title, author, url, year, genre, available)
+        INSERT INTO books (title, author, url, year, genre_id, available)
         VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING *;
     `,
-    [book.title, book.author, book.url, book.year, book.genre, book.available]
+    [book.title, book.author, book.url, book.year, book.genreId, book.available]
     )
         .then(result => {
             res.json(result.rows[0]);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
+
+app.get('/api/genres', (req, res) => {
+    client.query(`
+    SELECT
+        id,
+        name
+    FROM genres
+    ORDER BY name;
+    `)
+        .then(result => {
+            res.json(result.rows);
         })
         .catch(err => {
             res.status(500).json({
