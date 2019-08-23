@@ -35,28 +35,7 @@ h2 {
     margin-left: 20px;
 }
 
-ul {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 100px;
-}
 
-li {
-    border: 2px solid  rgb(230, 230, 230);
-    width: 250px;
-    margin-top: 50px;
-    margin-right: 15px;
-    text-align: center;
-}
-
-li img {
-    width: 125px;
-}
-
-li p {
-    text-align: left;
-    margin-left: 15px;
-}
 
 @media only screen and (max-width: 400px) {
     header {flex-direction: column;}
