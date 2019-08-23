@@ -17,7 +17,11 @@ class BookList extends Component {
     
     renderHTML() {
         return /*html*/`
+        <div>
+            <h1>Welcome to Full Stack Library</h1>
+            <p>Blurb</p>
             <ul class="books"></ul>
+        </div>
         `;
     }
 }
