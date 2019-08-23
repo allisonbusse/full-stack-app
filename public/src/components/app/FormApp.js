@@ -1,11 +1,26 @@
 import Component from '../Component.js';
 import Header from '../app/Header.js';
+import BookForm from '../book/BookForm.js';
 
 class FormApp extends Component {
 
     onRender(dom) {
         const header = new Header();
         dom.prepend(header.renderDOM());
+
+        const headerOne = document.createElement('h1');
+        const main = dom.querySelector('main');
+        headerOne.textContent = 'Submit Your Book';
+        main.prepend(headerOne);
+
+        const blurb = document.createElement('p');
+        blurb.classList.add('blurb');
+        blurb.textContent = 'Add your own book to be included in our library.';
+        main.appendChild(blurb);
+
+        const bookForm = new BookForm();
+        main.appendChild(bookForm.renderDOM());
+
     }
 
 
