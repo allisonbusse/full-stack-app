@@ -1,6 +1,8 @@
 import Component from '../Component.js';
 import Header from '../app/Header.js';
 import BookForm from '../book/BookForm.js';
+import { getGenres } from '../../services/book-api.js';
+
 
 class FormApp extends Component {
 
@@ -18,11 +20,12 @@ class FormApp extends Component {
         blurb.textContent = 'Add your own book to be included in our library.';
         main.appendChild(blurb);
 
-        const bookForm = new BookForm();
-        main.appendChild(bookForm.renderDOM());
-
+        getGenres()
+            .then(genres => {
+                const bookForm = new BookForm({ genres });
+                main.appendChild(bookForm.renderDOM());
+            });
     }
-
 
     renderHTML() {
         return /*html*/`

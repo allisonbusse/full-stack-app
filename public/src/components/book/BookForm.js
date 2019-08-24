@@ -30,6 +30,13 @@ class BookForm extends Component {
 
 
     renderHTML() {
+        const genres = this.props.genres;
+        const optionsList = genres.map(genre => {
+            return /*html*/`
+                <option value="${genre.id}">${genre.name}</option>
+            `;
+        });
+
         return /*html*/`
         <form>
             <p>Book Title: <input type="text" name="book-title" id="book-title" required></p>
@@ -39,8 +46,7 @@ class BookForm extends Component {
             <p>Available: <input name="available" type="checkbox" id="available"></p>
             <p>Genre: 
                 <select name="genre" id="genre" required>
-                    <option value="mystery">Mystery</option>
-                    <option value="literary-fiction">Literary Fiction</option>
+                ${optionsList.join('')}
                 </select></p>
             <button id="submit-button">Submit</button>
         </form>
