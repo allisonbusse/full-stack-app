@@ -15,7 +15,7 @@ class BookForm extends Component {
                 url: formData.get('image-url'),
                 year: +formData.get('year-published'),
                 available: formData.get('available') === 'on',
-                genre: formData.get('genre')
+                genreId: formData.get('genre')
             };
 
             addBook(book)
