@@ -1,0 +1,13 @@
+button { 
+    padding: 10px 30px;
+    background-color: rgb(230, 204, 204);
+    color: black;
+    border: 3px solid black;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-family: Playfair display;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 50px;
+};
