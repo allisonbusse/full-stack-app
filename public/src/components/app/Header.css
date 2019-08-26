@@ -1,0 +1,28 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 50px;
+    background-color: rgb(230, 230, 230);
+}
+
+header li {
+    list-style-type: none;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover {
+    list-style-type: none;
+    font-weight: 700;
+    color: rgb(230, 204, 204)
+}
+
+header img {
+    width: 175px;
+}
