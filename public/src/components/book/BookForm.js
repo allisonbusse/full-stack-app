@@ -23,6 +23,7 @@ class BookForm extends Component {
                     window.location = `book-list.html`;
                 })
                 .catch(err => {
+                    // eslint-disable-next-line no-console
                     console.log("your book wasn't saved! :(", err);
                 });
         });

@@ -7,6 +7,12 @@ export function getBooks() {
         .then(response => response.json());
 }
 
+export function getBook(id) {
+    const url = `${URL}/books/${id}`;
+    return fetch(url)
+        .then(response => response.json());
+}
+
 export function addBook(book) {
     const url = `${URL}/books`;
     return fetch(url, {

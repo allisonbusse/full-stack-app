@@ -45,6 +45,38 @@ app.get('/api/books', (req, res) => {
         });
 });
 
+app.get('/api/books/:id', (req, res) => {
+    const id = req.params.id;
+
+    client.query(`
+        SELECT 
+            b.*,
+            g.name as genre
+        FROM books b
+        JOIN genres g
+        ON b.genre_id = g.id
+        WHERE b.id = $1
+    `,
+    [id]
+    )
+        .then(result => {
+            const book = result.rows[0];
+            if(!book) {
+                res.status(404).json({
+                    error: `Book id ${id} does not exist`
+                });
+            }
+            else {
+                res.json(result.rows[0]);
+            }
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
+
 app.post('/api/books', (req, res) => {
     const book = req.body;
     client.query(`
