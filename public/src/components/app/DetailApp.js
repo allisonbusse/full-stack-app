@@ -1,6 +1,6 @@
 import Component from '../Component.js';
 import Header from './Header.js';
-import BookItem from '../book/BookItem.js';
+import BookDetail from '../book/BookDetail.js';
 import QUERY from '../../services/QUERY.js';
 import { getBook } from '../../services/book-api.js';
 
@@ -23,16 +23,12 @@ class DetailApp extends Component {
             return;
         }
 
-        const props = { book: [] };
-        const list = new BookItem(props);
-        main.appendChild(list.renderDOM());
-
-        getBook(id).then(book => {
-            console.log(book);
-            list.update({ book });
-        });
-
-
+        
+        getBook(id)
+            .then(book => {
+                const list = new BookDetail({ book });
+                main.appendChild(list.renderDOM());
+            });
     }
     
     renderHTML() {
